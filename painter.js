@@ -4,12 +4,12 @@
  const deg_to_rad = Math.PI / 180;
  
  class Painter {
-  constructor(canvas, w, h) {
+  constructor(selector, w, h) {
    this._initialized = false;
    this._mode = "fill";
    this._templates = {};
    this._temp = null;
-   this.canvas = typeof canvas === "string" ? d.querySelector(canvas) : canvas;
+   this.selector = selector;
    this.width = w;
    this.height = h;
    this.init();
@@ -19,9 +19,15 @@
   init() {
    if (this._initialized) return this;
    
+   try {
+    this.canvas = typeof this.selector === "string" ? d.querySelector(this.selector) : this.selector;
+   } catch {
+    throw new Error("Painter.js: init() fail. invalid CSS selector.")
+   }
+   
    const canvas = this.canvas;
    if (canvas.nodeName !== "CANVAS") {
-    throw new Error("Painter.js: init() fail. invalid selector or element for canvas!");
+    throw new Error("Painter.js: init() fail. invalid element.");
    };
    
    const width = this.width;
