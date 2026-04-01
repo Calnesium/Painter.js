@@ -1,4 +1,4 @@
-![GitHub release (latest by semver)](https://img.shields.io/github/v/release/Calnesium/Painter.js)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 
 # Painter.js
 A library for quick HTML5 Canvas code.
