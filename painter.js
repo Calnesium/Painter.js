@@ -22,12 +22,12 @@
    try {
     this.canvas = typeof this.selector === "string" ? d.querySelector(this.selector) : this.selector;
    } catch {
-    throw new Error("Painter.js: init() fail. invalid CSS selector.")
+    throw new Error("Painter.js: init() fail. Your selector is invalid.")
    }
    
    const canvas = this.canvas;
    if (canvas.nodeName !== "CANVAS") {
-    throw new Error("Painter.js: init() fail. invalid element.");
+    throw new Error("Painter.js: init() fail. Your selector is valid, but is not a canvas element.");
    };
    
    const width = this.width;
